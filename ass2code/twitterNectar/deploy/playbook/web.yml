@@ -1,0 +1,32 @@
+---
+- name: Deploy web
+  hosts: web
+  remote_user: ubuntu
+  become: yes
+  tasks:
+  - name: Install pip3
+    become: yes
+    apt:
+      name: python3-pip
+      state: latest
+
+  - name: Install couchdb
+    become: yes
+    pip:
+      executable: pip3
+      name: couchdb
+
+
+  - name: Install flask
+    become: yes
+    pip:
+      executable: pip3
+      name: flask
+
+  - name: Fetch the source code of the harvest
+    copy:
+      src: ../../web
+      dest: /home/ubuntu
+
+  - name: Run the harvester in Search mode
+    shell: nohup python3 /home/ubuntu/web/app.py > /home/ubuntu/output.log 2>&1 &e=latest

@@ -1,0 +1,56 @@
+---
+- name: Create an instance
+  os_server:
+    name: '{{ item.0.instance_name }}'
+    image: '{{ item.0.instance_image }}'
+    key_name: '{{ item.0.instance_key_name }}'
+    flavor: '{{ item.0.instance_flavor }}'
+    availability_zone: '{{ availability_zone }}'
+    security_groups: '{{ sg_names }}'
+    volumes: '{{ item.1 }}'
+    #volumes: '{{ vol-1 }}'
+    auto_floating_ip: yes
+    wait: yes
+    timeout: 600
+    state: present
+  with_together:
+    - '{{ instances }}'
+    - '{{ os_vol_ids }}'
+  #loop: '{{ instances }}'
+  register: os_instance
+
+#dest: "./remote_server.txt"
+#shell:
+#  - {{ instance_name }} > /remote_server.txt
+
+
+
+#  copy:
+#    dest: "./remote_server.txt"
+#    content:
+#      "{{ instance_name }}":
+#      - "{{ os_instance.openstack.public_v4 }}"
+      #'{{ instance_name }}' \n
+      #'{{ os_instance.openstack.public_v4 }}'
+      #{{ instance_name }}
+      #{{ os_instance.openstack.public_v4 }}
+
+
+
+
+- debug:
+    msg: "Image name: {{ instance_name }} has been created. IP address is {{ os_instance.openstack.public_v4 }}"
+  when: os_instance.openstack is defined
+
+#- name: return IP
+#  os_server:
+#    msg: "ip is {{ item.public_ip }}, ip name is {{ item.0.instance_name }}"
+#  loop: '{{ os_instance.results }}'
+#
+#- name: Add IP address of all hosts to all hosts
+#  lineinfile:
+#    dest: "./remote_server.txt"
+#    #line: "{{ os_instance.openstack.public_v4  }}"
+#    #line: "{{ item.instance_name }}"
+#    state: present
+#  loop: '{{ instances }}'

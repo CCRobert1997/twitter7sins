@@ -1,0 +1,6 @@
+search_tweets_api:
+  account_type: premium
+  endpoint: https://api.twitter.com/1.1/tweets/search/30day/brober111.json
+  consumer_key: ucVEkxWo2w6TQj4On0RT431Zg
+  consumer_secret: K3eV1kJz9J6wIC6F1Fu2MrP4Asl3RfDRWIsdKGqscLUulfX03H
+  
