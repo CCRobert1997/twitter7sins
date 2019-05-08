@@ -10,23 +10,30 @@ print(rule)
 
 from searchtweets import collect_results
 
-tweets = collect_results(rule,
-                         max_results=100,
-                         result_stream_args=premium_search_args)
+
 
 import couchdb
 
 couch = couchdb.Server('http://admin:admin@127.0.0.1:5984')
-
+print("Connect succeed")
 
 try:
-    db = couch['test']
+    db = couch['testnew']
 except:
-    db = couch.create('test')
+    db = couch.create('testnew')
 
+
+print("Doc create succeed")
 #db = couch.create('test')
 #db = couch['test']
 
+
+
+
+tweets = collect_results(rule,
+                         max_results=100,
+                         result_stream_args=premium_search_args)
+print("Tweet collected succeed")
 data_to_couch=[]
 for i in range(len(tweets)):
     data_to_couch.append({})

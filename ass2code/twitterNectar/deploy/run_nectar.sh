@@ -2,7 +2,7 @@
 . ./openrc.sh;
 #ansible-playbook --ask-become-pass nectar.yaml
 
-nova list;
+#nova list;
 
 #IPS="$(grep -o '[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}' hosts)"
 
@@ -12,8 +12,8 @@ nova list;
 
 #ansible-playbook -i hosts playbook/mount.yml
 
-#ansible-playbook -i hosts playbook/couchdb.yml
+ansible-playbook -i hosts playbook/couchdb.yml
 
-#ansible-playbook -i hosts playbook/harvest.yml
+ansible-playbook -i hosts playbook/harvest.yml
 
-ansible-playbook -i hosts playbook/web.yml
+#ansible-playbook -i hosts playbook/web.yml

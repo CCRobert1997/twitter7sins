@@ -29,8 +29,13 @@
       src: ../../harvest
       dest: /home/ubuntu
 
+
   - name: Run the harvester in Search mode
     shell: nohup python3 /home/ubuntu/harvest/twe_test.py > /home/ubuntu/output.log 2>&1 &
+
+#  - name: Run the harvester in Search mode
+#    shell: nohup python3 /home/ubuntu/harvest/harvesttestzxl/twe_test.py > /home/ubuntu/output.log 2>&1 &
+
 
 #  - name: Run the harvester in Stream mode
 #    shell: nohup python /home/ubuntu/DonauTwitter/crawler/TwitterCrawler.py s > /home/ubuntu/s.log 2>&1 &

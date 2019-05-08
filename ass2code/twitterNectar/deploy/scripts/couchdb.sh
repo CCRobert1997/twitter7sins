@@ -19,17 +19,17 @@ cont=$(docker ps --all | grep couchdb | cut -f1 -d' ')
 docker start ${cont}
 sleep 1
 
-
+echo "step0 done!!!!!!!!!!!!!"
 docker exec ${cont} \
       bash -c "echo \"-setcookie couchdb_cluster\" >> /opt/couchdb/etc/vm.args"
 docker exec ${cont} \
       bash -c "echo \"-name couchdb@${node}\" >> /opt/couchdb/etc/vm.args"
 
 docker restart ${cont}
-sleep 3
- 
-#curl -XPUT "http://localhost:5984/_node/_local/_config/admins/${user}" --data "\"${pass}\""
-#curl -XPUT "http://${user}:${pass}@localhost:5984/_node/couchdb@${node}/_config/chttpd/bind_address" --data '"0.0.0.0"'
-
-#rev=`curl -XGET "http://localhost:5986/_nodes/nonode@nohost" --user "${user}:${pass}" | sed -e 's/[{}"]//g' | cut -f3 -d:`
-#curl -X DELETE "http://localhost:5986/_nodes/nonode@nohost?rev=${rev}"  --user "${user}:${pass}"
+sleep 10
+echo "step1 done!!!!!!!!!!!!!"
+curl -XPUT "http://localhost:5984/_node/_local/_config/admins/${user}" --data "\"${pass}\""
+curl -XPUT "http://${user}:${pass}@localhost:5984/_node/couchdb@${node}/_config/chttpd/bind_address" --data '"0.0.0.0"'
+echo "step2 done!!!!!!!!!!!!!"
+rev=`curl -XGET "http://localhost:5986/_nodes/nonode@nohost" --user "${user}:${pass}" | sed -e 's/[{}"]//g' | cut -f3 -d:`
+curl -X DELETE "http://localhost:5986/_nodes/nonode@nohost?rev=${rev}"  --user "${user}:${pass}"

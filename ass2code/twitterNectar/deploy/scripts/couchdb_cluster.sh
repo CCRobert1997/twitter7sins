@@ -31,6 +31,6 @@ curl -XPOST "http://${user}:${pass}@${masternode}:5984/_cluster_setup" \
     --header "Content-Type: application/json" --data "{\"action\": \"finish_cluster\"}" 
 echo "step4 done!!!!!!!!!!!!!"
 #curl -X PUT "http://${user}:${pass}@${masternode}:5984/tweets"
-rev=`curl -XGET "http://${masternode}:5986/_nodes/nonode@nohost" --user "${user}:${pass}" | sed -e 's/[{}"]//g' | cut -f3 -d:`
-curl -X DELETE "http://${masternode}:5986/_nodes/nonode@nohost?rev=${rev}"  --user "${user}:${pass}"
-echo "step5 done!!!!!!!!!!!!!"
+#rev=`curl -XGET "http://${masternode}:5986/_nodes/nonode@nohost" --user "${user}:${pass}" | sed -e 's/[{}"]//g' | cut -f3 -d:`
+#curl -X DELETE "http://${masternode}:5986/_nodes/nonode@nohost?rev=${rev}"  --user "${user}:${pass}"
+#echo "step5 done!!!!!!!!!!!!!"

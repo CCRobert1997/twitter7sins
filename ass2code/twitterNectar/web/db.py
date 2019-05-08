@@ -1,5 +1,5 @@
 import couchdb
-couch = couchdb.Server('http://admin:admin@45.113.233.219:5984')
+couch = couchdb.Server('http://admin:admin@45.113.233.223:5984')
 db = couch['test']
 rows = db.view('_all_docs', include_docs=True)
 data = [row['doc'] for row in rows]
