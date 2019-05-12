@@ -1,6 +1,6 @@
 import couchdb
-couch = couchdb.Server('http://admin:admin@45.113.233.223:5984')
-db = couch['test']
+couch = couchdb.Server('http://admin:admin@103.6.254.57:5984')
+db = couch['tweets_data']
 rows = db.view('_all_docs', include_docs=True)
 data = [row['doc'] for row in rows]
 print(data)

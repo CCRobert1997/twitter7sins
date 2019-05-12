@@ -3,10 +3,20 @@ ansible_user=ubuntu
 ansible_ssh_private_key_file=/Users/chen/.ssh/wifitrack
 
 [web]
-103.6.254.54
+45.113.233.235
+
+
+
+
+
+
+
+
+
 
 
 [db]
-103.6.254.84
-103.6.254.122
-103.6.254.130
+103.6.254.57
+103.6.254.136
+45.113.232.158
+

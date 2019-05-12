@@ -14,6 +14,10 @@
         src: ../scripts/couchdb.sh
         dest: /home/ubuntu/couchdb.sh
 
+
+  - debug:
+      msg: "ansible_eth0.ipv4.address: {{ ansible_eth0.ipv4.address }}"
+
   - name: Install couchdb, setup db account, bind 0.0.0.0, remove default db
     command: "{{ item }}"
     with_items:

@@ -37,10 +37,26 @@
 
 
 
-
 - debug:
-    msg: "Image name: {{ instance_name }} has been created. IP address is {{ os_instance.openstack.public_v4 }}"
-  when: os_instance.openstack is defined
+    msg: "Image name: {{ item.0.instance_name }} has been created. IP address is {{ item.1.openstack.public_v4 }}"
+  when:  item.1.openstack is defined
+  with_together:
+    - '{{ instances }}'
+    - '{{ os_instance.results }}'
+
+
+
+- name: Write into hosts
+  lineinfile:
+    path: hosts
+    insertafter: '{{ item.0.instance_group }} '
+    line: "{{ item.1.openstack.public_v4 }}"
+  when: item.1.openstack is defined
+  with_together:
+    - '{{ instances }}'
+    - '{{ os_instance.results }}'
+
+
 
 #- name: return IP
 #  os_server:

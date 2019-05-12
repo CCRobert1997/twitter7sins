@@ -8,11 +8,14 @@ export pass=admin
 mkdir /mntVolume/data
 mkdir /mntVolume/etc
 mkdir /mntVolume/etc/local.d
+echo "mkdir done!!!!!!!!!!!!!"
 rm /mntVolume/etc/local.d/*
+echo "remove done!!!!!!!!!!!!!"
 touch /mntVolume/etc/local.d/1.ini
+echo "touch done!!!!!!!!!!!!!"
 docker create --net=host --volume /mntVolume/data:/opt/couchdb/data --volume /mntVolume/etc/local.d:/opt/couchdb/etc/local.d  couchdb:2.3.0
 sleep 1
-
+echo "docker create done!!!!!!!!!!!!!"
 cont=$(docker ps --all | grep couchdb | cut -f1 -d' ')
 #declare -a conts=(`docker ps --all | grep couchdb | cut -f1 -d' ' | xargs -n${size} -d'\n'`)
 
