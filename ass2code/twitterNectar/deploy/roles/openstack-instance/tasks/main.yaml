@@ -19,22 +19,6 @@
   #loop: '{{ instances }}'
   register: os_instance
 
-#dest: "./remote_server.txt"
-#shell:
-#  - {{ instance_name }} > /remote_server.txt
-
-
-
-#  copy:
-#    dest: "./remote_server.txt"
-#    content:
-#      "{{ instance_name }}":
-#      - "{{ os_instance.openstack.public_v4 }}"
-      #'{{ instance_name }}' \n
-      #'{{ os_instance.openstack.public_v4 }}'
-      #{{ instance_name }}
-      #{{ os_instance.openstack.public_v4 }}
-
 
 
 - debug:
@@ -57,16 +41,3 @@
     - '{{ os_instance.results }}'
 
 
-
-#- name: return IP
-#  os_server:
-#    msg: "ip is {{ item.public_ip }}, ip name is {{ item.0.instance_name }}"
-#  loop: '{{ os_instance.results }}'
-#
-#- name: Add IP address of all hosts to all hosts
-#  lineinfile:
-#    dest: "./remote_server.txt"
-#    #line: "{{ os_instance.openstack.public_v4  }}"
-#    #line: "{{ item.instance_name }}"
-#    state: present
-#  loop: '{{ instances }}'

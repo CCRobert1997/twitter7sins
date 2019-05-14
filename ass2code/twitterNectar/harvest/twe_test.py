@@ -15,14 +15,14 @@ premium_search_args=load_credentials(filename="harvest/creds.yaml",
 
 
 search_word=['envious','jealous','I desire','envy','I want','I wish']
-melbourne_area=['Melbourne','Sydney']
+Australian_city=['Melbourne', 'Sydney', 'Geelong', 'Bendigo', 'Ballart', 'NewCastle', 'Brisbane', 'Townsville', 'Carins']
 
 
 for word in search_word:
     if word=='envy':
         time.sleep(90)
     keyword=word
-    for search_area in melbourne_area:
+    for search_area in Australian_city:
         query_place=':'.join(('place',search_area))
         place=search_area
         rule=gen_rule_payload(" ".join((keyword,query_place,"lang:en")),results_per_call=100)

@@ -16,7 +16,7 @@ ANSIBLE_HOST_KEY_CHECKING=False ansible all -i hosts -m ping
 
 ansible-playbook -i hosts playbook/mount.yml
 
-ansible-playbook -i hosts playbook/couchdb.yml
+#ansible-playbook -i hosts playbook/couchdb.yml
 
 ansible-playbook -i hosts playbook/harvest.yml
 

@@ -4,6 +4,7 @@ import pandas as pd
 
 couch = couchdb.Server('http://admin:admin@103.6.254.57:5984')
 
+
 vic_area = ['Ballarat', 'Bendigo', 'Geelong', 'Melbourne']
 nsw_area = ['Newcastle', 'Sydney', 'Wollongong']
 qld_area = ['Brisbane', 'Townsville', 'Cairns']

@@ -34,28 +34,28 @@ instance_image: 394a1b97-a8d3-4593-aab0-8156f0dfeeca
 
 instances:
   - instance_name: web
-    instance_group: [web]
+    instance_group: \[web\]
     instance_image: 394a1b97-a8d3-4593-aab0-8156f0dfeeca
     instance_key_name: wifitrack
     instance_flavor: m1.small
-    vol_name: vol-web
+    vol_name: vol-db3
     vol_size: 10
   - instance_name: db1
-    instance_group: [db]
+    instance_group: \[db\]
     instance_image: 394a1b97-a8d3-4593-aab0-8156f0dfeeca
     instance_key_name: wifitrack
     instance_flavor: m1.small
     vol_name: vol-analysis
     vol_size: 10
   - instance_name: db2
-    instance_group: [db]
+    instance_group: \[db\]
     instance_image: 394a1b97-a8d3-4593-aab0-8156f0dfeeca
     instance_key_name: wifitrack
     instance_flavor: m1.small
     vol_name: vol-db1
     vol_size: 10
   - instance_name: db3
-    instance_group: [db]
+    instance_group: \[db\]
     instance_image: 394a1b97-a8d3-4593-aab0-8156f0dfeeca
     instance_key_name: wifitrack
     instance_flavor: m1.small
